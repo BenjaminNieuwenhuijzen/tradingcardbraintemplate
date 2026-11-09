@@ -1,6 +1,6 @@
 # Zo zet je TradingCardBrain op
 
-Reken op ongeveer 20 minuten. Je hoeft nergens een wachtwoord, sleutel of code in te vullen, behalve bij het inloggen op je eigen accounts.
+Reken op ongeveer 20 minuten. Je kiest zelf een wachtwoord voor je dashboard. Verder hoef je geen sleutels of codes in te vullen en heb je geen creditcard nodig.
 
 Je hebt nodig: een gratis GitHub account, een gratis Cloudflare account en een openbare collectie op PriceCharting.
 
@@ -33,20 +33,20 @@ Je hebt nodig: een gratis GitHub account, een gratis Cloudflare account en een o
 
 Zie je een veld **Deploy command** in plaats van **Build output directory**? Dan zit je bij Workers. Ga terug en begin opnieuw bij punt 3. Heb je per ongeluk al een Worker gemaakt, verwijder die dan via **Settings** en dan helemaal onderaan **Delete**, want een Worker kan al je gegevens online zetten.
 
-Je adres wordt iets als `mijntradingcardbrainjan.pages.dev`. Er staat nu nog alleen een wachtpagina. Je prijzen komen er pas na stap 5.
+Je adres wordt iets als `mijntradingcardbrainjan.pages.dev`. Het adres is nog dicht en meldt dat er geen wachtwoord is. Dat hoort zo.
 
-## Stap 4: scherm je dashboard af
+## Stap 4: kies je wachtwoord
 
-Deze stap is verplicht en komt voor het formulier. De prijzen zijn alleen voor jezelf bedoeld.
+Deze stap is verplicht. De prijzen zijn alleen voor jezelf bedoeld. Zonder wachtwoord blijft je dashboard dicht.
 
 1. Open in Cloudflare je project onder **Workers & Pages**.
-2. Ga naar **Settings** en klik op **Enable access policy**.
-3. Klik op **Manage** bij de regel die net is gemaakt.
-4. Ga naar **Access**, dan **Applications**, kies je project en klik op **Configure**.
-5. Haal bij **Public hostname** het sterretje uit het vak **Subdomain** en klik op **Save**. Geeft dit een foutmelding, pas dan de naam van de regel een beetje aan.
-6. Zorg dat bij de regel alleen jouw mailadres staat.
-7. Ga terug naar je project, dan **Settings**, en klik nog een keer op **Enable access policy**. Nu zijn ook de voorbeeldversies afgeschermd.
-8. Open je adres in een privévenster. Je moet nu om je mailadres gevraagd worden.
+2. Ga naar **Settings** en zoek **Variables and Secrets**. Klik op **Add**.
+3. Kies bij **Type** de optie **Secret**.
+4. Vul bij **Variable name** in: `DASHBOARD_WACHTWOORD`
+5. Vul bij **Value** een eigen wachtwoord in van minstens 12 tekens, dat je nergens anders gebruikt. Bewaar het goed.
+6. Klik op **Save**.
+7. Ga naar **Deployments**, klik bij de bovenste regel op de drie puntjes en kies **Retry deployment**.
+8. Wacht een minuut en open je adres. Je ziet nu een inlogscherm. Log in met je wachtwoord.
 
 ## Stap 5: vul het formulier in
 
@@ -60,7 +60,7 @@ Na een paar minuten staat er een groen vinkje bij twee runs. Daarmee is je eerst
 
 ## Stap 6: zet het op je telefoon
 
-1. Open je adres op je telefoon en vul je mailadres en de code uit je mail in.
+1. Open je adres op je telefoon en log in met je wachtwoord.
 2. Op een iPhone: tik in Safari op het deelicoon en kies **Zet op beginscherm**.
 3. Op Android: tik in Chrome op de drie puntjes en kies **Toevoegen aan startscherm**.
 

@@ -2,7 +2,7 @@
 
 Je eigen dashboard voor je kaartencollectie, gratis en altijd bereikbaar op je telefoon. Het volgt de waarde van je PriceCharting collectie, laat trends zien en denkt mee over wat slim is om te ruilen. Bij elk advies staan de reden en de cijfers.
 
-**Zelf installeren?** Klik op **Use this template** en volg [SETUP.md](SETUP.md). Je hoeft niets te programmeren en geen wachtwoorden of sleutels in te vullen.
+**Zelf installeren?** Klik op **Use this template** en volg [SETUP.md](SETUP.md). Je hoeft niets te programmeren en je hebt geen creditcard nodig. Je kiest alleen zelf een wachtwoord voor je dashboard.
 
 ## Goed om te weten
 
