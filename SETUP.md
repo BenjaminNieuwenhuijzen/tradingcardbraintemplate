@@ -18,17 +18,7 @@ Je hebt nodig: een gratis GitHub account, een gratis Cloudflare account en een o
 4. Kies **Private**.
 5. Klik op **Create repository**.
 
-## Stap 3: vul het formulier in
-
-1. Klik in je nieuwe kopie bovenaan op **Actions**.
-2. Klik links op **TradingCardBrain instellen**.
-3. Klik rechts op **Run workflow**.
-4. Plak je link uit stap 1 in het eerste vak. Laat de andere vakken staan.
-5. Klik op de groene knop **Run workflow**.
-
-Na een paar minuten staat er een groen vinkje bij twee runs. Daarmee is je eerste dashboard gemaakt.
-
-## Stap 4: zet je dashboard online
+## Stap 3: zet je dashboard online
 
 1. Ga naar dash.cloudflare.com en maak een gratis account of log in.
 2. Klik links op **Workers & Pages**.
@@ -39,11 +29,11 @@ Na een paar minuten staat er een groen vinkje bij twee runs. Daarmee is je eerst
 7. Vul bij **Build output directory** in: `site`
 8. Klik op **Save and Deploy**.
 
-Je adres wordt iets als `mijntradingcardbrainjan.pages.dev`. Open het nog niet met anderen: schermen doe je in de volgende stap.
+Je adres wordt iets als `mijntradingcardbrainjan.pages.dev`. Er staat nu nog alleen een wachtpagina. Je prijzen komen er pas na stap 5.
 
-## Stap 5: scherm je dashboard af
+## Stap 4: scherm je dashboard af
 
-Deze stap is verplicht. De prijzen zijn alleen voor jezelf bedoeld.
+Deze stap is verplicht en komt voor het formulier. De prijzen zijn alleen voor jezelf bedoeld.
 
 1. Open in Cloudflare je project onder **Workers & Pages**.
 2. Ga naar **Settings** en klik op **Enable access policy**.
@@ -53,6 +43,16 @@ Deze stap is verplicht. De prijzen zijn alleen voor jezelf bedoeld.
 6. Zorg dat bij de regel alleen jouw mailadres staat.
 7. Ga terug naar je project, dan **Settings**, en klik nog een keer op **Enable access policy**. Nu zijn ook de voorbeeldversies afgeschermd.
 8. Open je adres in een privévenster. Je moet nu om je mailadres gevraagd worden.
+
+## Stap 5: vul het formulier in
+
+1. Ga terug naar je kopie op GitHub en klik bovenaan op **Actions**.
+2. Klik links op **TradingCardBrain instellen**.
+3. Klik rechts op **Run workflow**.
+4. Plak je link uit stap 1 in het eerste vak. Laat de andere vakken staan.
+5. Klik op de groene knop **Run workflow**.
+
+Na een paar minuten staat er een groen vinkje bij twee runs. Daarmee is je eerste dashboard gemaakt.
 
 ## Stap 6: zet het op je telefoon
 
