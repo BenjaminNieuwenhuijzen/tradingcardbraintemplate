@@ -22,12 +22,16 @@ Je hebt nodig: een gratis GitHub account, een gratis Cloudflare account en een o
 
 1. Ga naar dash.cloudflare.com en maak een gratis account of log in.
 2. Klik links op **Workers & Pages**.
-3. Klik op **Create application**, kies **Pages** en daarna **Connect to Git**.
-4. Koppel je GitHub account en kies de repository `mijntradingcardbrain`.
-5. Vul bij **Project name** een naam in die nog niet bestaat, bijvoorbeeld `mijntradingcardbrainjan` met je eigen naam erachter.
-6. Laat **Build command** leeg.
-7. Vul bij **Build output directory** in: `site`
-8. Klik op **Save and Deploy**.
+3. Klik op **Create application**.
+4. **Let op:** Cloudflare stelt eerst iets anders voor (Workers). Kies daar geen repository. Zoek onderaan de kleine tekst **Looking to deploy Pages?** en klik op **Get started**.
+5. Kies **Import an existing Git repository** en klik op **Get started**.
+6. Koppel je GitHub account en kies de repository `mijntradingcardbrain`. Klik op **Begin setup**.
+7. Vul bij **Project name** een naam in die nog niet bestaat, bijvoorbeeld `mijntradingcardbrainjan` met je eigen naam erachter.
+8. Zet **Framework preset** op **None** en laat **Build command** leeg.
+9. Vul bij **Build output directory** in: `site`
+10. Klik op **Save and Deploy**.
+
+Zie je een veld **Deploy command** in plaats van **Build output directory**? Dan zit je bij Workers. Ga terug en begin opnieuw bij punt 3. Heb je per ongeluk al een Worker gemaakt, verwijder die dan via **Settings** en dan helemaal onderaan **Delete**, want een Worker kan al je gegevens online zetten.
 
 Je adres wordt iets als `mijntradingcardbrainjan.pages.dev`. Er staat nu nog alleen een wachtpagina. Je prijzen komen er pas na stap 5.
 
