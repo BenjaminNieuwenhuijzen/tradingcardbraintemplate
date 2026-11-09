@@ -1,0 +1,84 @@
+name: TradingCardBrain instellen
+
+on:
+  workflow_dispatch:
+    inputs:
+      collectie_link:
+        description: "Plak hier de link naar je PriceCharting collectie"
+        required: true
+        type: string
+      categorie:
+        description: "Categorie (laat staan voor Pokémon)"
+        required: true
+        default: "pokemon-cards"
+        type: string
+      spel:
+        description: "Spel (laat staan voor Pokémon)"
+        required: true
+        default: "pokemon"
+        type: string
+      tijdzone:
+        description: "Tijdzone (laat staan voor Nederland)"
+        required: true
+        default: "Europe/Amsterdam"
+        type: string
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: tradingcardbrain
+  cancel-in-progress: false
+
+jobs:
+  instellen:
+    if: github.repository != 'BenjaminNieuwenhuijzen/tradingcardbraintemplate'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Eigen gegevens ophalen
+        uses: actions/checkout@v7
+
+      - name: Nieuwste versie binnen hoofdversie 1 zoeken
+        id: engine
+        run: |
+          tag=$(git ls-remote --tags --refs https://github.com/BenjaminNieuwenhuijzen/tradingcardbrain 'v1' 'v1.*' | sed 's#.*refs/tags/##' | sort -V | tail -n 1)
+          test -n "$tag"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Engine ophalen
+        uses: actions/checkout@v7
+        with:
+          repository: BenjaminNieuwenhuijzen/tradingcardbrain
+          ref: ${{ steps.engine.outputs.tag }}
+          path: .engine
+
+      - name: Python klaarzetten
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Instellingen opslaan
+        env:
+          LINK: ${{ inputs.collectie_link }}
+          CATEGORIE: ${{ inputs.categorie }}
+          SPEL: ${{ inputs.spel }}
+          TIJDZONE: ${{ inputs.tijdzone }}
+        run: python .engine/scripts/run.py configure --home . --collection-link "$LINK" --categories "$CATEGORIE" --game "$SPEL" --timezone "$TIJDZONE"
+
+      - name: Instellingen bewaren
+        run: |
+          git config user.name "tradingcardbrain bot"
+          git config user.email "tradingcardbrain@users.noreply.github.com"
+          git add config
+          if git diff --cached --quiet; then
+            echo "De instellingen waren al zo."
+          else
+            git commit -m "Instellingen bijgewerkt"
+            git push
+          fi
+
+      - name: Eerste run starten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run "TradingCardBrain dagelijkse run" --repo "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
